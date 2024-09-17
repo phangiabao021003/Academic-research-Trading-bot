@@ -1,0 +1,42 @@
+#---------------------Training----------------------
+#Format: python train.py <filedata để train> <file data năm 2022> --strategy <chiến thuật> --model-name <Tên mô hình muốn đặt>
+#Dùng để tạo ra mô hình
+# Ví dụ;
+------------------VIC---------------------------
+python train.py data/VIC.csv data/VIC2023.csv --strategy t-dqn --model-name VIC_tdqn
+python train.py data/VIC.csv data/VIC2023.csv --strategy dqn --model-name VIC_dqn
+python train.py data/VIC.csv data/VIC2023.csv --strategy double-dqn --model-name VIC_double_dqn
+
+python train.py data/VIC20142023.csv data/VIC2024.csv --strategy t-dqn --model-name VIC_tdqn20142023
+python train.py data/VIC20142023.csv data/VIC2024.csv --strategy dqn --model-name VIC_dqn20142023
+python train.py data/VIC20142023.csv data/VIC2024.csv --strategy double-dqn --model-name VIC_double_dqn20142023
+
+
+python train.py data/VIC20142022.csv data/VIC20232024.csv --strategy t-dqn --model-name VIC_tdqn20142022
+python train.py data/VIC20142022.csv data/VIC20232024.csv --strategy dqn --model-name VIC_dqn20142022
+python train.py data/VIC20142022.csv data/VIC20232024.csv --strategy double-dqn --model-name VIC_double_dqn20142022
+----------------FPT----------------------------
+python train.py data/FPT20142022.csv data/FPT20232024.csv --strategy t-dqn --episode-count 100 --model-name FPT_tdqn
+python train.py data/FPT20142022.csv data/FPT20232024.csv --strategy dqn --episode-count 100 --model-name FPT_dqn
+python train.py data/FPT20142022.csv data/FPT20232024.csv --strategy double-dqn --episode-count 100 --model-name FPT_double_dqn
+
+
+#---------------------Evaluate---------------------------
+#Sử dụng mô hình đã tạo để áp vào data
+#Format: python eval.py <file data năm 2023 đến nay> --model-name <Tên mô hình> --debug
+python eval.py data/VIC2024.csv --model-name VIC_tdqn_50 --debug
+python eval.py data/VIC2024.csv --model-name VIC_dqn_50 --debug
+python eval.py data/VIC2024.csv --model-name VIC_double_dqn_50 --debug
+
+
+python eval.py data/FPT2024.csv --model-name FPT_dqn20142022_10 --debug
+python eval.py data/FPT20232024.csv --model-name FPT_tdqn20142022_11 --debug
+python eval.py data/VIC2024.csv --model-name VIC_tdqn20142023_24 --debug
+python eval.py data/VIC2024.csv --model-name VIC_dqn20142023_38 --debug
+python eval.py data/VIC2024.csv --model-name VIC_double_dqn20142023_34 --debug
+
+python eval.py data/VIC2024.csv --model-name VIC_double_dqn20142023_5 --debug
+-------------------------------
+python eval.py data/FPT2024.csv --model-name FPT_tdqn_10 --debug
+python eval.py data/FPT2024.csv --model-name FPT_dqn_10 --debug
+python eval.py data/FPT2024.csv --model-name FPT_double_dqn_50 --debug
